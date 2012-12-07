@@ -5,8 +5,8 @@
 
 required_version "0.5"
 
-define_package "libvorbis" do |package|
-	package.install do |environment|
+define_target "vorbis" do |target|
+	target.install do |environment|
 		environment.use in:(package.path + 'libvorbis-1.3.3') do |config|
 			Commands.run("make", "clean") if File.exist? "Makefile"
 				
@@ -25,10 +25,10 @@ define_package "libvorbis" do |package|
 		end
 	end
 	
-	package.depends :system
-	package.depends "Library/ogg"
+	target.depends :platform
+	target.depends "Library/ogg"
 	
-	package.provides "Library/vorbis" do
+	target.provides "Library/vorbis" do
 		append linkflags ["-lvorbis", "-lvorbisfile"]
 	end
 end
