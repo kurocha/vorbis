@@ -6,8 +6,8 @@
 required_version "0.6"
 
 define_target "vorbis" do |target|
-	target.install do |environment|
-		install_external(package.path, "libvorbis-1.3.3", environment) do |config, fresh|
+	target.build do |environment|
+		build_external(package.path, "libvorbis-1.3.3", environment) do |config, fresh|
 			if fresh
 				Commands.run("sed", "-i", "-e", "s/-force_cpusubtype_ALL//g", "configure", "configure.ac")
 				
