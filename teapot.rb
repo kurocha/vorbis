@@ -32,3 +32,8 @@ define_target "vorbis" do |target|
 	end
 end
 
+define_configuration "vorbis" do |configuration|
+	configuration.public!
+	
+	configuration.require "ogg"
+end
