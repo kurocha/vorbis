@@ -28,7 +28,7 @@ define_target "vorbis" do |target|
 	target.depends "Library/ogg"
 	
 	target.provides "Library/vorbis" do
-		append linkflags ["-lvorbisfile", "-lvorbis"]
+		append linkflags ["-lvorbis", "-lvorbisfile"]
 	end
 end
 
